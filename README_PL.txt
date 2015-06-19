@@ -29,6 +29,8 @@ Instalacja
 =========================
 Zainstaluj jak każdy inny plugin do katalogu /filter/vowels
 
+Jeśli instalujesz Instalatorem pluginów z pliku zip wybierz rodzaj pluginu: Filtr tekstu (Plugin type: Text filter)
+
 Zobacz http://docs.moodle.org/28/en/Installing_plugins aby dowiedzieć się więcej na temat instalacji pluginów w Moodle
 
 

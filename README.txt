@@ -28,6 +28,8 @@ Installation
 =========================
 Install the plugin like any other plugin to folder /filter/vowels
 
+If You're installing with Plugin installer using zip archive choose plugin type: Text filter (filter)
+
 See http://docs.moodle.org/28/en/Installing_plugins for details on installing Moodle plugins
 
 
