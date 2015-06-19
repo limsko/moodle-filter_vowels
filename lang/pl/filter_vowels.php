@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'Automatyczna zmiana spacji za wybranymi samogłoskami i słowami na &amp;nbsp;';
+$string['filtername'] = 'Automatyczna twarda spacja';
 $string['letters'] = 'Zastosuj dla tych samogłosek';
-$string['letters_desc'] = 'Filtr zadziała tylko na wpisanych w to pole samogłoskach.';
+$string['letters_desc'] = 'Filtr zadziała tylko na wpisanych w to pole samogłoskach. Wpisz wszystkie samogłoski, nie rozdzielaj ich spacją lub innym znakiem.';
 $string['words'] = 'Dodatkowe słowa';
 $string['words_desc'] = 'Umieść tutaj słowa rozdzielone przecinkami, po których spacje zmienią się na &amp;nbsp;<br />Wymaga zaznaczenia poniższego checkbox\'a.';
 $string['wordsenable'] = 'Włącz filtr Dodatkowych słów';

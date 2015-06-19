@@ -24,9 +24,9 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'Auto change spaces after chosen vowels and words into &amp;nbsp;';
+$string['filtername'] = 'Auto non-breaking space filter';
 $string['letters'] = 'Apply to this vowels';
-$string['letters_desc'] = 'The filter will be applied only to letters specified in this field.';
+$string['letters_desc'] = 'The filter will be applied only to letters specified in this field. You can\'t use here any special characters or spaces.';
 $string['words'] = 'Additional words filtering';
 $string['words_desc'] = 'Put here comma separated words after wchich spaces will be changed into &amp;nbsp;<br />This function requires enabling checkbox below.';
 $string['wordsenable'] = 'Enable additional words filtering';
