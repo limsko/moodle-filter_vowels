@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'Zmień spacje za samogłoskami w twarde spacje';
+$string['filtername'] = 'Automatyczna zmiana spacji za wybranymi samogłoskami i słowami na &amp;nbsp;';
 $string['letters'] = 'Zastosuj dla tych samogłosek';
 $string['letters_desc'] = 'Filtr zadziała tylko na wpisanych w to pole samogłoskach.';
 $string['words'] = 'Dodatkowe słowa';

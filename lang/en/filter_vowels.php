@@ -24,7 +24,7 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'Vowels filter';
+$string['filtername'] = 'Auto change spaces after chosen vowels and words into &amp;nbsp;';
 $string['letters'] = 'Apply to this vowels';
 $string['letters_desc'] = 'The filter will be applied only to letters specified in this field.';
 $string['words'] = 'Additional words filtering';
