@@ -54,11 +54,19 @@ class filter_vowels extends moodle_text_filter {
 		  }
 
         // TODO: Check that javascripts working good 
-		  // TODO2: Add feature to change space to &nbsp; after specified words	
 		  $text = preg_replace( '/(&nbsp;)+(['.$letters.'])/', ' \2', $text );	
 		  $text = preg_replace( '/\s+(['.$letters.'])\s/', ' \1&nbsp;', $text );
 
-        return $text;
+		  if ($this->get_global_config('wordsenable') and $this->get_global_config('words')) {	
+				foreach(explode(',',$this->get_global_config('words')) AS $val){
+					if(is_string($val)) {
+						$text = preg_replace( '/(&nbsp;)+('.$val.')/i', ' \2', $text );	
+						$text = preg_replace( '/\s+('.$val.')+\s/i', ' \1&nbsp;', $text );
+					}
+				}
+		  }
+
+			return $text;
     }
 
     /**

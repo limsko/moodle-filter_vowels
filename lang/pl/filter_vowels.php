@@ -27,3 +27,7 @@ defined('MOODLE_INTERNAL') || die();
 $string['filtername'] = 'Zmień spacje za samogłoskami w twarde spacje';
 $string['letters'] = 'Zastosuj dla tych samogłosek';
 $string['letters_desc'] = 'Filtr zadziała tylko na wpisanych w to pole samogłoskach.';
+$string['words'] = 'Dodatkowe słowa';
+$string['words_desc'] = 'Umieść tutaj słowa rozdzielone przecinkami, po których spacje zmienią się na &amp;nbsp;<br />Wymaga zaznaczenia poniższego checkbox\'a.';
+$string['wordsenable'] = 'Włącz filtr Dodatkowych słów';
+$string['wordsenable_desc'] = 'Włącza dodatkowe filtrowanie słów';

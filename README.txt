@@ -41,7 +41,7 @@ First, activate the filter_vowels plugin in Site Administration -> Plugins -> Fi
 Settings
 =========================
 filter_vowels has a settings page to allow you to change the filter to only certain letters.
-
+You can also enable function that changes spaces after selected words into hard spaces.
 
 Copyright
 =========================

@@ -24,6 +24,10 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$string['filtername'] = 'Vowels to new line';
+$string['filtername'] = 'Vowels filter';
 $string['letters'] = 'Apply to this vowels';
 $string['letters_desc'] = 'The filter will be applied only to letters specified in this field.';
+$string['words'] = 'Additional words filtering';
+$string['words_desc'] = 'Put here comma separated words after wchich spaces will be changed into &amp;nbsp;<br />This function requires enabling checkbox below.';
+$string['wordsenable'] = 'Enable additional words filtering';
+$string['wordsenable_desc'] = 'Enables filtering also for words';
