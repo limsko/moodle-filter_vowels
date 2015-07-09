@@ -26,8 +26,10 @@ defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Auto non-breaking space filter';
 $string['letters'] = 'Apply to this vowels';
-$string['letters_desc'] = 'The filter will be applied only to letters specified in this field. You can\'t use here any special characters or spaces.';
-$string['words'] = 'Additional words filtering';
-$string['words_desc'] = 'Put here comma separated words after wchich spaces will be changed into &amp;nbsp;<br />This function requires enabling checkbox below.';
-$string['wordsenable'] = 'Enable additional words filtering';
+$string['letters_desc'] = 'The filter will be applied only to letters specified in this field. Filter is case sensitive.';
+$string['words'] = 'Additional filtering after words';
+$string['words_desc'] = 'Put here comma separated words after which spaces will be changed into &amp;nbsp;<br />This function requires enabling words filtering. Filter is case sensitive.';
+$string['wordsbefore'] = 'Additional filtering before words';
+$string['wordsbeforedesc'] = 'Put here comma separated words before which spaces will be changed into &amp;nbsp;<br />This function requires enabling words filtering. Filter is case sensitive.';
+$string['wordsenable'] = 'Enable words filtering';
 $string['wordsenable_desc'] = 'Enables filtering also for words';

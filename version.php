@@ -26,8 +26,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version   = 2015061901;            // The current plugin version (Date: YYYYMMDDXX)
+$plugin->version   = 2015070901;            // The current plugin version (Date: YYYYMMDDXX)
 $plugin->maturity = MATURITY_STABLE;        // this version's maturity level.
-$plugin->release = '1.0 (Build: 20150619)';
+$plugin->release = '1.1 (Build: 2015070901)';
 $plugin->requires  = 2013050100;           // Requires this Moodle version
 $plugin->component = 'filter_vowels'; // Full name of the plugin (used for diagnostics)

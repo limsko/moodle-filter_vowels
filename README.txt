@@ -5,7 +5,7 @@ It is specially non-estetic in Polish sites.
 
 So paragraph like this:
 
-The quick brown fox jumps over a 
+The quick brown fox jumps over a
 lazy dog.
 
 Will be displayed as:
@@ -16,6 +16,11 @@ a lazy dog.
 
 Release notes
 =========================
+*1.1
+- filtering inside html tags parameters bug fixed
+- added new function to change space into hard-space before selected words
+
+*1.0
 This is first release of this filter so please report any bugs You found.
 
 
@@ -41,7 +46,7 @@ First, activate the filter_vowels plugin in Site Administration -> Plugins -> Fi
 Settings
 =========================
 filter_vowels has a settings page to allow you to change the filter to only certain letters.
-You can also enable function that changes spaces after selected words into hard spaces.
+You can also enable function that changes spaces after or/and before selected words into hard spaces.
 
 Copyright
 =========================

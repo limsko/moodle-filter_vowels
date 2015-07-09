@@ -47,27 +47,57 @@ class filter_vowels extends moodle_text_filter {
     public function filter($text, array $options = array()) {
 
 	 	  //GET filter config
-		  if ($this->get_global_config('letters')) {	
+		  if ($this->get_global_config('letters')) {
 		  	$letters = $this->get_global_config('letters');
 		  } else {
 			$letters = 'aiouwzAIOUWZ';
 		  }
 
-        // TODO: Check that javascripts working good 
-		  $text = preg_replace( '/(&nbsp;)+(['.$letters.'])/', ' \2', $text );	
-		  $text = preg_replace( '/\s+(['.$letters.'])\s/', ' \1&nbsp;', $text );
-
-		  if ($this->get_global_config('wordsenable') and $this->get_global_config('words')) {	
+        // TODO: Check that javascripts working good
+		  // TODO2: Add Polish letters support
+		  /*
+		  *
+		  *		Replace all spaces after configured letters
+		  *
+		  */
+		  $expr = '\s+(\b['.$letters.']\b)\s';
+		  $pattern      = '/'.$expr.'(?=[^<>]*<)/';
+	 	  $replacement  = ' \1&nbsp;';
+		  $text = preg_replace( $pattern, $replacement, $text );
+		  /*
+		  *
+		  *		Replace all spaces after configured words
+		  *
+		  */
+		  if ($this->get_global_config('wordsenable') and $this->get_global_config('words')) {
 				foreach(explode(',',$this->get_global_config('words')) AS $val){
 					if(is_string($val)) {
-						$text = preg_replace( '/(&nbsp;)+('.$val.')/i', ' \2', $text );	
-						$text = preg_replace( '/\s+('.$val.')+\s/i', ' \1&nbsp;', $text );
+						$expr = '\s(\b'.$val.'\b)\s';
+						$pattern      = '/'.$expr.'(?=[^<>]*<)/';
+		    			$replacement  = ' \1&nbsp;';
+						$text = preg_replace( $pattern, $replacement, $text );
+					}
+				}
+		  }
+		  /*
+		  *
+		  *		Replace all spaces before configured words
+		  *
+		  */
+		  if ($this->get_global_config('wordsenable') and $this->get_global_config('words_before')) {
+				foreach(explode(',',$this->get_global_config('words_before')) AS $val){
+					if(is_string($val)) {
+						$expr = '\s(\b'.$val.'\b)';
+						$pattern      = '/'.$expr.'(?=[^<>]*<)/';
+		    			$replacement  = '&nbsp;\1';
+						$text = preg_replace( $pattern, $replacement, $text );
 					}
 				}
 		  }
 
 			return $text;
     }
+
 
     /**
      * Returns the global filter setting

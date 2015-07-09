@@ -30,5 +30,8 @@ if ($ADMIN->fulltree) {
 	$defaultsetting ='on,in,is,at,up,to';
 	$settings->add(new admin_setting_configtextarea('filter_vowels/words', get_string('words', 'filter_vowels'), get_string('words_desc', 'filter_vowels'), $defaultsetting));
 
+	$defaultsetting ='';
+	$settings->add(new admin_setting_configtextarea('filter_vowels/words_before', get_string('wordsbefore', 'filter_vowels'), get_string('wordsbeforedesc', 'filter_vowels'), $defaultsetting));
+
 	$settings->add(new admin_setting_configcheckbox('filter_vowels/wordsenable', get_string('wordsenable', 'filter_vowels'), get_string('wordsenable_desc', 'filter_vowels'), 0));
 }

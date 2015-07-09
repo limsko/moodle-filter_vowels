@@ -4,12 +4,12 @@ Ten filtr zmienia wszystkie łamliwe spacje występujące za samogłoską (np. a
 
 Paragraf taki jak ten:
 
-Mężny bądź, chroń pułk twój i 
+Mężny bądź, chroń pułk twój i
 sześć flag.
 
 Zostanie wyświetlony w następujący sposób:
 
-Mężny bądź, chroń pułk twój 
+Mężny bądź, chroń pułk twój
 i sześć flag.
 
 Między samogłoską "i" i słowem "sześć" znajdzie się &nbsp; - i&nbsp;sześć
@@ -17,6 +17,11 @@ Między samogłoską "i" i słowem "sześć" znajdzie się &nbsp; - i&nbsp;sześ
 
 Informacje o wersji
 =========================
+*1.1
+- usunięto błąd filtrowania wewnątrz parametrów tagów html
+- dodałem funkcję zmiany spacji na niełamliwą przed wybranymi słowami
+
+*1.0
 Jest to pierwsza wersja filtru.
 
 
@@ -43,7 +48,9 @@ First, activate the filter_vowels plugin in Administracja serwisu -> Wtyczki -> 
 Ustawienia
 =========================
 filter_vowels posiada stronę ustawień filtru w którym można zdefiniować samogłoski, po których spacja ma zostać podmieniona.
+Istnieje także możliwość zmiany spacji na twarde spacje przed lub/i za wybranymi wyrazami.
 
+Uwaga filtr nie wspiera podmiany polskich znaków (z ogonkami).
 
 Prawa autorskie
 =========================
