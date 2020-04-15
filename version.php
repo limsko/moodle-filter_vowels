@@ -17,16 +17,15 @@
 /**
  * Version details
  *
- * @package    filter
- * @subpackage vowels
+ * @package    filter_vowels
  * @copyright  2015 onwards Kamil Łuczak <kamil@limsko.pl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2020041501;
+$plugin->version = 2020041502;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.2 (Build: 2020041501)';
+$plugin->release = '1.2 (Build: 2020041502)';
 $plugin->requires = 2013050100;
 $plugin->component = 'filter_vowels';

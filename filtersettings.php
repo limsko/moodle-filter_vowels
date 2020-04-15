@@ -17,8 +17,7 @@
 /**
  * Filter vowels settings.
  *
- * @package    filter
- * @subpackage vowels
+ * @package    filter_vowels
  * @copyright  2015 onwards Kamil Łuczak <kamil@limsko.pl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

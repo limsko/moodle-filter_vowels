@@ -15,8 +15,9 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * @package    filter
- * @subpackage vowels
+ * Strings for filter_vowels, language pl.
+ *
+ * @package    filter_vowels
  * @copyright  2015 onwards Kamil Łuczak <kamil@limsko.pl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */

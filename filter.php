@@ -17,14 +17,16 @@
 /**
  * Filter converting configured single characters or words and glues it with next word with non breaking character.
  *
- * @package    filter
- * @subpackage vowels
+ * @package    filter_vowels
  * @copyright  2015 onwards Kamil Łuczak <kamil@limsko.pl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
+/**
+ * Class filter_vowels. Main filter_vowels class.
+ */
 class filter_vowels extends moodle_text_filter {
 
     /**
