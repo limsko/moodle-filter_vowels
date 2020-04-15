@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -16,11 +15,11 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Filter converting URLs in the text to HTML links
+ * Filter converting configured single characters or words and glues it with next word with non breaking character.
  *
  * @package    filter
  * @subpackage vowels
- * @copyright  2015 Kamil Łuczak <kamil@limsko.pl>
+ * @copyright  2015 onwards Kamil Łuczak <kamil@limsko.pl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
@@ -28,76 +27,67 @@ defined('MOODLE_INTERNAL') || die();
 
 class filter_vowels extends moodle_text_filter {
 
-     /**
-      * @var array global configuration for this filter
-      *
-      * This might be eventually moved into parent class if we found it
-      * useful for other filters, too.
-      */
+    /**
+     * @var array global configuration for this filter
+     */
     protected static $globalconfig;
 
     /**
-     * Apply the filter to the text
+     * Main filter function that apply the filter to the text.
      *
-     * @see filter_manager::apply_filter_chain()
      * @param string $text to be processed by the text
      * @param array $options filter options
      * @return string text after processing
+     * @throws dml_exception
+     * @see filter_manager::apply_filter_chain()
      */
     public function filter($text, array $options = array()) {
 
-	 	  //GET filter config
-		  if ($this->get_global_config('letters')) {
-		  	$letters = $this->get_global_config('letters');
-		  } else {
-			$letters = 'aiouwzAIOUWZ';
-		  }
+        // Get filter config.
+        if ($this->get_global_config('letters')) {
+            $letters = $this->get_global_config('letters');
+        } else {
+            $letters = 'aiouwzAIOUWZ';
+        }
 
-        // TODO: Check that javascripts working good
-		  // TODO2: Add Polish letters support
-		  /*
-		  *
-		  *		Replace all spaces after configured letters
-		  *
-		  */
-		  $expr = '\s+(\b['.$letters.']\b)\s';
-		  $pattern      = '/'.$expr.'(?=[^<>]*<)/';
-	 	  $replacement  = ' \1&nbsp;';
-		  $text = preg_replace( $pattern, $replacement, $text );
-		  /*
-		  *
-		  *		Replace all spaces after configured words
-		  *
-		  */
-		  if ($this->get_global_config('wordsenable') and $this->get_global_config('words')) {
-				foreach(explode(',',$this->get_global_config('words')) AS $val){
-					if(is_string($val)) {
-						$expr = '\s(\b'.$val.'\b)\s';
-						$pattern      = '/'.$expr.'(?=[^<>]*<)/';
-		    			$replacement  = ' \1&nbsp;';
-						$text = preg_replace( $pattern, $replacement, $text );
-					}
-				}
-		  }
-		  /*
-		  *
-		  *		Replace all spaces before configured words
-		  *
-		  */
-		  if ($this->get_global_config('wordsenable') and $this->get_global_config('words_before')) {
-				foreach(explode(',',$this->get_global_config('words_before')) AS $val){
-					if(is_string($val)) {
-						$expr = '\s(\b'.$val.'\b)';
-						$pattern      = '/'.$expr.'(?=[^<>]*<)/';
-		    			$replacement  = '&nbsp;\1';
-						$text = preg_replace( $pattern, $replacement, $text );
-					}
-				}
-		  }
+        // First filter all single characters.
+        $expr = '\s+(\b[' . $letters . ']\b)';
+        $pattern = '/' . $expr . '(?![^<>]*>)\s/u';  // The expression '(?![^<>]*>)' is used to skip html tag attributes.
+        $replacement = ' \1&nbsp;';
+        $text = preg_replace($pattern, $replacement, $text);
 
-			return $text;
+        // Do it again and now fix `&nbsp;CHAR WORD` into `&nbspCHAR&nbsp;WORD`.
+        $expr = '(?:\s|&nbsp;)(\b[' . $letters . ']\b)';
+        $pattern = '/' . $expr . '(?![^<>]*>)\s/u';
+        $replacement = '&nbsp;\1&nbsp;';
+        $text = preg_replace($pattern, $replacement, $text);
+
+        // Then replace all spaces after configured words.
+        if ($this->get_global_config('wordsenable') and $this->get_global_config('words')) {
+            foreach (explode(',', $this->get_global_config('words')) as $val) {
+                if (is_string($val)) {
+                    $expr = '(\b' . $val . '\b)';
+                    $pattern = '/' . $expr . '(?![^<>]*>)\s/u';
+                    $replacement = ' \1&nbsp;';
+                    $text = preg_replace($pattern, $replacement, $text);
+                }
+            }
+        }
+
+        // And at end replace all spaces before configured words.
+        if ($this->get_global_config('wordsenable') and $this->get_global_config('words_before')) {
+            foreach (explode(',', $this->get_global_config('words_before')) as $val) {
+                if (is_string($val)) {
+                    $expr = '\s(\b' . $val . '\b)';
+                    $pattern = '/' . $expr . '(?![^<>]*>)/u';
+                    $replacement = '&nbsp;\1';
+                    $text = preg_replace($pattern, $replacement, $text);
+                }
+            }
+        }
+
+        return $text;
     }
-
 
     /**
      * Returns the global filter setting
@@ -107,14 +97,15 @@ class filter_vowels extends moodle_text_filter {
      * found.
      *
      * @param mixed $name optional config variable name, defaults to null for all
-     * @return string|object|null
+     * @return string|array|null
+     * @throws dml_exception
      */
-    protected function get_global_config($name=null) {
+    protected function get_global_config($name = null) {
         $this->load_global_config();
         if (is_null($name)) {
             return self::$globalconfig;
 
-        } elseif (array_key_exists($name, self::$globalconfig)) {
+        } else if (array_key_exists($name, self::$globalconfig)) {
             return self::$globalconfig->{$name};
 
         } else {
@@ -125,7 +116,7 @@ class filter_vowels extends moodle_text_filter {
     /**
      * Makes sure that the global config is loaded in $this->globalconfig
      *
-     * @return void
+     * @throws dml_exception
      */
     protected function load_global_config() {
         if (is_null(self::$globalconfig)) {

@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -25,11 +24,13 @@
 defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Auto non-breaking space filter';
-$string['letters'] = 'Apply to this vowels';
+$string['letters'] = 'Apply to this single characters';
 $string['letters_desc'] = 'The filter will be applied only to letters specified in this field. Filter is case sensitive.';
 $string['words'] = 'Additional filtering after words';
-$string['words_desc'] = 'Put here comma separated words after which spaces will be changed into &amp;nbsp;<br />This function requires enabling words filtering. Filter is case sensitive.';
+$string['words_desc'] = 'Put here comma separated words after which spaces will be changed into &amp;nbsp;<br />This function ' .
+        ' requires enabling words filtering. Filter is case sensitive.';
 $string['wordsbefore'] = 'Additional filtering before words';
-$string['wordsbeforedesc'] = 'Put here comma separated words before which spaces will be changed into &amp;nbsp;<br />This function requires enabling words filtering. Filter is case sensitive.';
+$string['wordsbeforedesc'] = 'Put here comma separated words before which spaces will be changed into &amp;nbsp;<br />This ' .
+        'function requires enabling words filtering. Filter is case sensitive.';
 $string['wordsenable'] = 'Enable words filtering';
 $string['wordsenable_desc'] = 'Enables filtering also for words';

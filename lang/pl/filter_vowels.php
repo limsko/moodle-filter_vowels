@@ -1,5 +1,4 @@
 <?php
-
 // This file is part of Moodle - http://moodle.org/
 //
 // Moodle is free software: you can redistribute it and/or modify
@@ -18,15 +17,17 @@
 /**
  * @package    filter
  * @subpackage vowels
- * @copyright  2015 Kamil Łuczak <kamil@limsko.pl>
+ * @copyright  2015 onwards Kamil Łuczak <kamil@limsko.pl>
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 
 defined('MOODLE_INTERNAL') || die();
 
 $string['filtername'] = 'Automatyczna twarda spacja';
-$string['letters'] = 'Zastosuj dla tych samogłosek';
-$string['letters_desc'] = 'Filtr zadziała tylko na wpisanych w to pole samogłoskach. Wpisz wszystkie samogłoski, nie rozdzielaj ich spacją lub innym znakiem.';
+$string['letters'] = 'Zastosuj dla tych jednoliterowych spójników';
+$string['letters_desc'] =
+        'Filtr zadziała tylko na wpisanych w to pole jednoliterowych spójnikach. Wpisz wszystkie jednoliterowych spójniki, ' .
+        'nie rozdzielaj ich spacją lub innym znakiem.';
 $string['words'] = 'Dodatkowe filtrowanie za wybranymi słowami';
 $string['words_desc'] = 'Umieść tutaj słowa rozdzielone przecinkami, po których spacje zmienią się na &amp;nbsp;';
 $string['wordsbefore'] = 'Dodatkowe filtrowanie przed wybranymi słowami';
