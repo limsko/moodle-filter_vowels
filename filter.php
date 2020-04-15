@@ -68,7 +68,7 @@ class filter_vowels extends moodle_text_filter {
                 if (is_string($val)) {
                     $expr = '(\b' . $val . '\b)';
                     $pattern = '/' . $expr . '(?![^<>]*>)\s/u';
-                    $replacement = ' \1&nbsp;';
+                    $replacement = '\1&nbsp;';
                     $text = preg_replace($pattern, $replacement, $text);
                 }
             }

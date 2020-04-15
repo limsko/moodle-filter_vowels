@@ -25,8 +25,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-$plugin->version = 2020041500;
+$plugin->version = 2020041501;
 $plugin->maturity = MATURITY_STABLE;
-$plugin->release = '1.2 (Build: 2020041500)';
+$plugin->release = '1.2 (Build: 2020041501)';
 $plugin->requires = 2013050100;
 $plugin->component = 'filter_vowels';
